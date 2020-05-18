@@ -157,30 +157,27 @@ export default {
         id: route.params.postId
       }).then(({ data: resData }) => {
         data.postDetail = resData.post
-        const proxyId = sessionStorage.getItem('proxyId')
-        const userId = JSON.parse(localStorage.getItem('userInfo')).id
+        const userInfo = JSON.parse(localStorage.getItem('userInfo'))
+        const userId = userInfo.id
+        const proxyId = userInfo.proxyId
         if (data.postDetail.userId && userId === data.postDetail.userId) {
           data.canEdite = true
         }
+        const shareLink =
+          location.protocol +
+          '//www.geinigejuzichi.top/' +
+          (proxyId ? '?proxyId=' + proxyId : '') +
+          '#/detail/' +
+          route.params.postId
         toolkit.wxShare('onMenuShareTimeline', {
           title: '找一个生活习惯相同的人结婚-本地人相亲', // 分享标题
-          link:
-            location.protocol +
-            '//www.geinigejuzichi.top/' +
-            (proxyId ? '?proxyId=' + proxyId : '') +
-            '#/detail/' +
-            route.params.postId, // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
+          link: shareLink, // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
           imgUrl: data.postDetail.imgs[0] // 分享图标
         })
         toolkit.wxShare('onMenuShareAppMessage', {
           title: '找一个生活习惯相同的人结婚-本地人相亲', // 分享标题
           desc: `年龄:${data.postDetail.age}, 家乡:${data.postDetail.city}, 职业:${data.postDetail.occupation}, 工作地点:${data.postDetail.workCity}, 择偶标准:${data.postDetail.standard}`, // 分享描述
-          link:
-            location.protocol +
-            '//www.geinigejuzichi.top/' +
-            (proxyId ? '?proxyId=' + proxyId : '') +
-            '#/detail/' +
-            route.params.postId, // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
+          link: shareLink, // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
           imgUrl: data.postDetail.imgs[0]
         })
       })

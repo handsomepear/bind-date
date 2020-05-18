@@ -221,7 +221,8 @@ export default {
           }
           // 女生列表有数据就选女生 否则选男生
           const shareItem = data['female'].postList[0] || data['male'].postList[0]
-          const proxyId = sessionStorage.getItem('proxyId')
+          const userInfo = JSON.parse(localStorage.getItem('userInfo'))
+          const proxyId = userInfo.proxyId
           toolkit.wxShare('onMenuShareTimeline', {
             title: '找一个生活习惯相同的人结婚-本地人相亲', // 分享标题
             link: location.protocol + '//www.geinigejuzichi.top/' + (proxyId ? '?proxyId=' + proxyId : ''), // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致

@@ -23,7 +23,7 @@ const toolkit = {
     const requestParams = this.getRequest()
     const proxyId = requestParams.proxyId
     // 保存 proxyId ，在分享的时候需要使用
-    proxyId && sessionStorage.setItem('proxyId', proxyId)
+
     let url = window.location.href
     const codeStr = url.match(/[?&]code=\w+&state=\w+/g)
     // 截取一下微信重定向加的参数 避免多次使用当前的 code
@@ -37,7 +37,7 @@ const toolkit = {
       sessionStorage.setItem('loginCount', ++loginCount)
       request({
         url: '/login',
-        data: { code: requestParams.code, proxyId: parseInt(proxyId) || '' }
+        data: { code: requestParams.code, proxyId: parseInt(proxyId) || 0 }
       })
         .then(({ data }) => {
           success && success(data)
