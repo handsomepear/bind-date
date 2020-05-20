@@ -31,7 +31,7 @@ module.exports = {
     //   }
     // }
   },
-  publicPath: process.env.NODE_ENV === 'production' ? '' : process.env.NODE_ENV === 'alpha' ? '/' : '/',
+  publicPath: process.env.NODE_ENV === 'production' ? '/main/' : process.env.NODE_ENV === 'alpha' ? '/' : '/',
   assetsDir: assetsDir,
   outputDir: process.env.NODE_ENV === 'production' ? 'dist' : process.env.NODE_ENV === 'alpha' ? 'test' : 'dist',
   pluginOptions: {

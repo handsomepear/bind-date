@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import toolkit from '../utils/_toolkit'
+const _env = process.env.NODE_ENV
 
 Vue.use(VueRouter)
 
@@ -38,6 +39,8 @@ const routes = [
 ]
 
 const router = new VueRouter({
+  mode: _env === 'production' ? 'history' : 'hash',
+  base: _env === 'production' ? '/main/' : '/',
   routes
 })
 
