@@ -225,7 +225,7 @@ export default {
           const proxyId = userInfo.proxyId
           toolkit.wxShare('onMenuShareTimeline', {
             title: '找一个生活习惯相同的人结婚-本地人相亲', // 分享标题
-            link: location.protocol + '//www.geinigejuzichi.top/' + (proxyId ? '?proxyId=' + proxyId : ''), // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
+            link: location.protocol + '//www.geinigejuzichi.top/main/' + (proxyId ? '?proxyId=' + proxyId : ''), // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
             imgUrl: shareItem && shareItem.imgs[0] // 分享图标
           })
           toolkit.wxShare('onMenuShareAppMessage', {

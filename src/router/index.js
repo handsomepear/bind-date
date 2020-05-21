@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import toolkit from '../utils/_toolkit'
+// import toolkit from '../utils/_toolkit'
 const _env = process.env.NODE_ENV
 
 Vue.use(VueRouter)
@@ -49,9 +49,9 @@ router.beforeEach((to, from, next) => {
   // const nonceStr = localStorage.getItem('nonceStr')
   // const signature = localStorage.getItem('signature')
   // toolkit.wxConfig({ timestamp, nonceStr, signature })
-  if (toolkit.isWeChatUrl()) {
-    window.location.href = toolkit.getProjectUrl()
-  }
+  // if (toolkit.isWeChatUrl()) {
+  //   window.location.href = toolkit.getProjectUrl()
+  // }
   next()
 })
 export default router

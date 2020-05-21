@@ -165,7 +165,7 @@ export default {
         }
         const shareLink =
           location.protocol +
-          '//www.geinigejuzichi.top/detail/' +
+          '//www.geinigejuzichi.top/main/detail/' +
           route.params.postId +
           (proxyId ? '?proxyId=' + proxyId : '')
         toolkit.wxShare('onMenuShareTimeline', {
