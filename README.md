@@ -38,5 +38,3 @@ npm run lint
   3. 然后在代码中通过别名，也就是 `externals` 对象中的 key 直接引入包名即可
 - 通过 webpack 插件 `compression-webpack-plugin` 对文件进行 GZIP 压缩
 
-本地人相亲 124219608@qq.com ssds1993..
-寻一人终老 3325464507@qq.com. ssds1993..
